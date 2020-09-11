@@ -41,7 +41,7 @@ public class Encoder {
 					{
 						pw.print((int)p.charAt(0));
 					}
-					else
+					else if (dictionary.size() <=350)
 					{
 						pw.print(256+dictionary.indexOf(p));
 					}
