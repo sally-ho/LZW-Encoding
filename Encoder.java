@@ -22,7 +22,7 @@ public class Encoder {
 			//reading in a text file and creating print writer
 			FileReader fr = new FileReader (fileName);
 			BufferedReader br = new BufferedReader(fr);
-			PrintWriter pw = new PrintWriter (fileName + "encoded");
+			PrintWriter pw = new PrintWriter ("encoded.txt");
 			while (br.ready())
 			{
 				c = (char)br.read();
