@@ -10,12 +10,12 @@ public class Encoder {
 	private String p = "";
 	private char c = 0;
 	private String pc = "";
-	
+
 	public Encoder ()
 	{
 	}
 
-	
+
 	public void encode (String fileName) throws IOException
 	{
 		try {
@@ -33,22 +33,32 @@ public class Encoder {
 				{
 					p = pc;
 				}
+				//print out value for previous character
 				else
 				{
-					
+
 					//if p is already in the ascii table
-					if ((int)p.charAt(0) <= 255)
+					if (p.length()==1)
 					{
-						pw.print((int)p.charAt(0));
+						pw.print((int)p.charAt(0) + " ");
 					}
+					//if only in dictionary
 					else if (dictionary.size() <=350)
 					{
-						pw.print(256+dictionary.indexOf(p));
+						pw.print(256+dictionary.indexOf(p) + " ");
 					}
 					dictionary.add(pc);
 					p= "" + c;
 				}
-				
+
+			}
+			if (p.length() == 1 )
+			{
+				pw.print((int)p.charAt(0)+ " ");
+			}
+			else
+			{
+				pw.print(256+dictionary.indexOf(p) + " ");
 			}
 			pw.close();
 			br.close();
