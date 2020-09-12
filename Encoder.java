@@ -43,15 +43,19 @@ public class Encoder {
 						pw.print((int)p.charAt(0) + " ");
 					}
 					//if only in dictionary
-					else if (dictionary.size() <=350)
+					else 
 					{
 						pw.print(256+dictionary.indexOf(p) + " ");
 					}
-					dictionary.add(pc);
+					if (dictionary.size()<=1000)
+					{
+						dictionary.add(pc);
+					}
 					p= "" + c;
 				}
 
 			}
+			//edge case
 			if (p.length() == 1 )
 			{
 				pw.print((int)p.charAt(0)+ " ");
